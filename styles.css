@@ -146,7 +146,7 @@ body {
     .navbar {
         padding: 2rem;
         justify-content: space-between;
-        min-height: 3.75rem;
+        min-height: 3.25rem;
     }
 
     .logo {
@@ -159,7 +159,7 @@ body {
     .hamburger {
         display: flex;
         position: absolute;
-        right: 1rem;     
+        right: 0.4rem;     
         top: 50%;
         transform: translateY(-50%); 
     }
