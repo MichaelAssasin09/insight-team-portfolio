@@ -222,7 +222,7 @@ body {
 }
 
 .activity-postcard {
-    scale: 0.95;
+    scale: 0.999;
     box-sizing: border-box;
     max-width: 20rem;
     margin: 0 auto;
@@ -415,4 +415,5 @@ body {
     }
 
 }
+
 
