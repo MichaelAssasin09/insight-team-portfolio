@@ -23,7 +23,7 @@ let currentIndex = 0;
 const slider = document.querySelector('.slider');
 const cards = document.querySelectorAll('.member-card');
 const totalCards = cards.length;
-const cardWidth = cards[0].offsetWidth + 48; // Including margin
+const cardWidth = cards[0].offsetWidth + 16; // Including margin
 
 document.querySelector('.next').addEventListener('click', function() {
     if (currentIndex < totalCards * 2) {
@@ -47,6 +47,7 @@ document.querySelector('.show-more-btn').addEventListener('click', function() {
     });
 
 });
+
 
 
 
