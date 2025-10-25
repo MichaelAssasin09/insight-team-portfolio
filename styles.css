@@ -159,7 +159,7 @@ body {
     .hamburger {
         display: flex;
         position: absolute;
-        right: 0.4rem;     
+        right: 2rem;     
         top: 50%;
         transform: translateY(-50%); 
     }
