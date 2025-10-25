@@ -26,7 +26,7 @@ const totalCards = cards.length;
 const cardWidth = cards[0].offsetWidth + 16; // Including margin
 
 document.querySelector('.next').addEventListener('click', function() {
-    if (currentIndex < totalCards) {
+    if (currentIndex < totalCards + 2) {
         currentIndex++;
         slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
     }
@@ -47,3 +47,4 @@ document.querySelector('.show-more-btn').addEventListener('click', function() {
     });
 
 });
+
