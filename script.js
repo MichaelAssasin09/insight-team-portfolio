@@ -8,6 +8,25 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// hamburger
+const hamburger = document.querySelector('.hamburger');
+const sideNav = document.querySelector('.side-nav');
+const overlay = document.querySelector('.overlay');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    sideNav.classList.toggle('active');
+    overlay.classList.toggle('active');
+});
+
+// Klik overlay untuk menutup
+overlay.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    sideNav.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
+
 // See more for vision mission
 document.querySelector('.see-more-btn').addEventListener('click', function() {
     const hiddenMission = document.querySelector('.hidden-mission');
@@ -26,7 +45,7 @@ const totalCards = cards.length;
 const cardWidth = cards[0].offsetWidth + 16; // Including margin
 
 document.querySelector('.next').addEventListener('click', function() {
-    if (currentIndex < totalCards * 16) {
+    if (currentIndex < totalCards * 8) {
         currentIndex++;
         slider.style.transform = `translateX(-${currentIndex * cardWidth * 0.45}px)`;
     }
@@ -45,16 +64,4 @@ document.querySelector('.show-more-btn').addEventListener('click', function() {
     hiddenItems.forEach(item => {
         item.style.display = item.style.display === 'block' ? 'none' : 'block';
     });
-
 });
-
-
-
-
-
-
-
-
-
-
-
