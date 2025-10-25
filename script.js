@@ -26,16 +26,16 @@ const totalCards = cards.length;
 const cardWidth = cards[0].offsetWidth + 24; // Including margin
 
 document.querySelector('.next').addEventListener('click', function() {
-    if (currentIndex < totalCards) {
+    if (currentIndex < totalCards + 2) {
         currentIndex++;
-        slider.style.transform = `translateX(-${currentIndex * cardWidth * 0.75}px)`;
+        slider.style.transform = `translateX(-${currentIndex * cardWidth * 0.65}px)`;
     }
 });
 
 document.querySelector('.prev').addEventListener('click', function() {
     if (currentIndex > 0) {
         currentIndex--;
-        slider.style.transform = `translateX(-${currentIndex * cardWidth * 0.75}px)`;
+        slider.style.transform = `translateX(-${currentIndex * cardWidth * 0.65}px)`;
     }
 });
 
@@ -45,4 +45,5 @@ document.querySelector('.show-more-btn').addEventListener('click', function() {
     hiddenItems.forEach(item => {
         item.style.display = item.style.display === 'block' ? 'none' : 'block';
     });
+
 });
