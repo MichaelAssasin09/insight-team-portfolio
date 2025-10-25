@@ -103,11 +103,16 @@ body {
     right: -25rem;
     width: 25rem;
     height: 100%;
-    background-color: #000000;
-    color: white;
+    background-color: #ffffff;
+    color: black;
     padding-top: 60px;
     transition: 0.3s;
     z-index: 999;
+}
+
+.navbar.scrolled .side-nav {
+    background-color: #000000;
+    color: white;
 }
 
 .side-nav h1 {
@@ -159,7 +164,7 @@ body {
     .hamburger {
         display: flex;
         position: absolute;
-        margin-right: 3.5rem;
+        margin-right: 6.5rem;
         right: 1rem;     
         top: 50%;
         transform: translateY(-50%); 
@@ -545,4 +550,5 @@ body {
     .contact-content {
         flex-direction: column;
     }
+
 }
