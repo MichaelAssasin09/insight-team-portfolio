@@ -395,6 +395,16 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-menu li a {
+        margin-right: 0;         
+        flex-wrap: nowrap;       
+        white-space: nowrap;     
+    }
+
+    .nav-menu {
+        overflow-x: auto;        
+        gap: 1rem;              
+    }
     .navbar {
         flex-direction: column;
         padding: 1rem;
