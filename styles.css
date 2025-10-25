@@ -396,6 +396,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu li a {
+        font-size: 0.2rem;
         margin-right: 0;         
         flex-wrap: nowrap;       
         white-space: nowrap;     
