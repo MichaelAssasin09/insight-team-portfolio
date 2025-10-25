@@ -143,6 +143,14 @@ body {
     .nav-menu {
         display: none;
     }
+    .logo {
+        margin-left: 1rem;
+        align-items: left;
+    }
+    .hamburger {
+        margin-right: 1rem;
+        align-items: right;
+}
 }
 
 /* Title Section */
