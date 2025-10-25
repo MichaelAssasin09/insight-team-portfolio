@@ -37,7 +37,7 @@ body {
 }
 
 .hamburger {
-    display: flex;
+    display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 0.3rem;
@@ -149,11 +149,13 @@ body {
     }
 
     .logo {
-        margin-left: 0; 
+        margin: 0;
+         
     }
 
     .hamburger {
-        margin-right: 0; 
+        margin-right: 0;
+        display: flex; 
     }
 }
 
