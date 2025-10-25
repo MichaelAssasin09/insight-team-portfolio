@@ -144,13 +144,14 @@ body {
         display: none;
     }
     .navbar {
-        padding: 5rem;
-        justify-content: space-between; ;
+        padding: 1rem 2rem;
+        justify-content: space-between;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .logo {
         position: absolute;
-        padding: 1rem 2rem ;
         left: 1rem;      
         top: 50%;
         transform: translateY(-50%);
@@ -159,7 +160,6 @@ body {
     .hamburger {
         display: flex;
         position: absolute;
-        padding: 1rem 2rem ;
         right: 1rem;     
         top: 50%;
         transform: translateY(-50%); 
