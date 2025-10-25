@@ -145,17 +145,22 @@ body {
     }
     .navbar {
         padding: 1rem;
-        justify-content: space-between; 
+        justify-content: space-between; ;
     }
 
     .logo {
-        margin: 0;
-         
+        position: absolute;
+        left: 1rem;      
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .hamburger {
-        margin-right: 0;
-        display: flex; 
+        display: flex;
+        position: absolute;
+        right: 1rem;     
+        top: 50%;
+        transform: translateY(-50%); 
     }
 }
 
