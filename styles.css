@@ -143,14 +143,18 @@ body {
     .nav-menu {
         display: none;
     }
-    .logo {
-        margin-left: 1rem;
-        align-items: left;
+    .navbar {
+        padding: 1rem;
+        justify-content: space-between; 
     }
+
+    .logo {
+        margin-left: 0; 
+    }
+
     .hamburger {
-        margin-right: 1rem;
-        align-items: right;
-}
+        margin-right: 0; 
+    }
 }
 
 /* Title Section */
