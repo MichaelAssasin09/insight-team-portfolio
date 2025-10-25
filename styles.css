@@ -222,6 +222,7 @@ body {
 }
 
 .activity-postcard {
+    scale: 0.8;
     box-sizing: border-box;
     max-width: 20rem;
     margin: 0 auto;
@@ -412,4 +413,5 @@ body {
     .contact-content {
         flex-direction: column;
     }
+
 }
