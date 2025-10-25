@@ -38,9 +38,10 @@ body {
 
 .nav-menu li a {
     font-size: 1.2rem;
-    white-space: nowrap;
+    flex-wrap: wrap;
+    gap: 1rem;
     display: flex;
-    overflow-x: auto;
+    flex-direction: row;
     text-decoration: none;
     color: inherit;
     transition: color 0.3s ease;
