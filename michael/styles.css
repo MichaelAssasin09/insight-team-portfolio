@@ -1,6 +1,8 @@
 body {
     margin: 0;
     font-family: helvetica,arial,sans-serif;
+    background-image: url(assets/10.jpg);
+    background-size: cover;
 }
 
 a, button {
@@ -187,31 +189,71 @@ a, button {
     left: 0;
     top: 0;
     width: 25rem;
-    height: 100vh;
+    height: 39rem;
     background-color: #ffffff;
-    border-right: 1px solid #000000;
+    border: 1px solid #000000;
     padding: 1rem;
     box-sizing: border-box;
     text-align: center;
+    border-radius: 10px;
+    z-index: 1;
+    margin-left: 0.5rem;
+    margin-top: 6.2em;
 }
-.sidebar img {
+
+.sidebar-item img {
     outline: 0.1rem solid black;
-    max-width: 15rem;
+    max-width: 20rem;
     height: auto;
     border-radius: 10px;
-    margin-top: 5rem;
+    margin-top: 1.5rem;
     margin-bottom: 5rem;
     transition: transform 0.3s ease;
 }
 
-.sidebar h1,h2 {
+.sidebar-item h1 {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
     margin-top: 0;
-    line-height: 1.2rem;
+    line-height: 1.88rem;
+    transform: translateY(-3rem);
+}
+
+.sidebar-item h2 {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+    line-height: 1.88rem;
+    transform: translateY(-3rem);
 }
 
 .sidebar img:hover {
     transform: scale(1.05); 
 }
+
+.bio {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 25rem;
+    height: 16rem;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: left;
+    border-radius: 10px;
+    z-index: 1;
+    margin-left: 0.5rem;
+    margin-top: 45.8rem;
+}
+
+.bio h1,h2 {
+    margin-left: 1.4rem;
+}
+
 .content {
     margin-top: 5rem;
     margin-left: 25rem; 
@@ -325,9 +367,7 @@ a, button {
     text-align: center;
     padding: 1rem;
     font-size: 0.8rem;
-    width: 100%;
-    bottom: 0;
-    
+    margin-bottom: 0;
 }
 
 /* Responsive Design */
