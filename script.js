@@ -1,13 +1,3 @@
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
@@ -40,7 +30,6 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('active');
 });
 
-
 // See more for vision mission
 document.querySelector('.see-more-btn').addEventListener('click', function() {
     const hiddenMission = document.querySelector('.hidden-mission');
@@ -51,43 +40,110 @@ document.querySelector('.see-more-btn').addEventListener('click', function() {
     });
 });
 
-// Slider for members
-let currentIndex = 0;
-const slider = document.querySelector('.slider');
-const cards = document.querySelectorAll('.member-card');
-const totalCards = cards.length;
-const cardWidth = cards[0].offsetWidth + 16; // Including margin
+(() => {
+    const slider = document.getElementById('member-slider');
+    const prevBtn = document.querySelector('.slider-btn-prev');
+    const nextBtn = document.querySelector('.slider-btn-next');
+    const cards = slider.querySelectorAll('.member-card');
 
-document.querySelector('.next').addEventListener('click', function() {
-    if (currentIndex < totalCards) {
-        currentIndex++;
-        slider.style.transform = `translateX(-${currentIndex * cardWidth * 1.26}px)`;
+    const gap = 20;
+    const cardWidth = cards[0].offsetWidth;
+    const slideWidth = cardWidth + gap;
+
+    let visibleCards = window.innerWidth <= 768 ? 1 : 3;
+
+    // Calculate total width and max translateX (negative value)
+    function getMaxTranslateX() {
+        const totalWidth = cards.length * slideWidth - gap; // total width minus last gap
+        const visibleWidth = visibleCards * slideWidth - gap;
+        return Math.min(0, visibleWidth - totalWidth); // negative or zero
     }
-});
 
-document.querySelector('.prev').addEventListener('click', function() {
-    if (currentIndex > 0) {
-        currentIndex--;
-        slider.style.transform = `translateX(-${currentIndex * cardWidth * 1.26}px)`;
+    let currentTranslateX = 0;
+    let maxTranslateX = getMaxTranslateX();
+
+    function updateButtons() {
+        prevBtn.disabled = currentTranslateX === 0;
+        nextBtn.disabled = currentTranslateX <= maxTranslateX;
+        prevBtn.style.opacity = prevBtn.disabled ? '0.3' : '1';
+        nextBtn.style.opacity = nextBtn.disabled ? '0.3' : '1';
+        prevBtn.style.cursor = prevBtn.disabled ? 'default' : 'pointer';
+        nextBtn.style.cursor = nextBtn.disabled ? 'default' : 'pointer';
     }
-});
 
-// Show more for affiliated
+    function moveSlider(newTranslateX) {
+        currentTranslateX = Math.min(0, Math.max(maxTranslateX, newTranslateX));
+        slider.style.transform = `translateX(${currentTranslateX}px)`;
+        updateButtons();
+    }
+
+    prevBtn.addEventListener('click', () => {
+        moveSlider(currentTranslateX + slideWidth);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        moveSlider(currentTranslateX - slideWidth);
+    });
+
+    window.addEventListener('resize', () => {
+        const newVisibleCards = window.innerWidth <= 768 ? 1 : 3;
+        if (newVisibleCards !== visibleCards) {
+            visibleCards = newVisibleCards;
+            maxTranslateX = getMaxTranslateX();
+            moveSlider(0);
+        }
+    });
+
+    // Add touch event listeners for mobile swipe support
+    if (visibleCards === 1) {
+        let startX = 0;
+        let isDragging = false;
+
+        slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            // Optional: visual feedback for swipe could be added here
+        });
+
+        slider.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            const endX = e.changedTouches[0].clientX;
+            const deltaX = endX - startX;
+
+            const swipeThreshold = cardWidth / 3; // minimum swipe distance
+
+            if (deltaX > swipeThreshold) {
+                // swipe right - move slider right (prev)
+                moveSlider(currentTranslateX + slideWidth);
+            } else if (deltaX < -swipeThreshold) {
+                // swipe left - move slider left (next)
+                moveSlider(currentTranslateX - slideWidth);
+            }
+            // else no movement for small swipe
+        });
+    }
+
+    // Initialize slider
+    moveSlider(0);
+})();
+
+// Show more for affiliated businesses
 document.querySelector('.show-more-btn').addEventListener('click', function() {
     const hiddenItems = document.querySelectorAll('.affiliated-item.hidden');
+    const isHidden = hiddenItems.length > 0;
     hiddenItems.forEach(item => {
-        item.style.display = item.style.display === 'block' ? 'none' : 'block';
-    });
-});
-
-const params = new URLSearchParams(window.location.search);
-    const section = params.get('scroll');
-
-    if (section) {
-      setTimeout(() => {
-        const target = document.getElementById(section);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
+        if (isHidden) {
+            // Show item by removing hidden class
+            item.classList.remove('hidden');
+        } else {
+            // Hide item by adding hidden class
+            item.classList.add('hidden');
         }
-      }, 400);
-    }
+    });
+    this.textContent = isHidden ? 'Show Less' : 'Show More';
+});
